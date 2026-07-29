@@ -1,24 +1,24 @@
 <?php
 
-$allowedOrigins = [
-    "https://quote-forge-triples.vercel.app",
-    "https://quoteforge-phi.vercel.app",
-    "http://localhost:8080",
-    "http://172.27.80.1:8080",
-];
+// $allowedOrigins = [
+//     "https://quote-forge-triples.vercel.app",
+//     "https://quoteforge-phi.vercel.app",
+//     "http://localhost:8080",
+//     "http://172.27.80.1:8080",
+// ];
 
-$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
-if (in_array($origin, $allowedOrigins)) {
-    header("Access-Control-Allow-Origin: $origin");
-}
+// $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+// if (in_array($origin, $allowedOrigins)) {
+//     header("Access-Control-Allow-Origin: $origin");
+// }
 
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type, Cache-Control, Authorization");
+// header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+// header("Access-Control-Allow-Headers: Content-Type, Cache-Control, Authorization");
 
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200);
-    exit();
-}
+// if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+//     http_response_code(200);
+//     exit();
+// }
 
 
 ini_set('log_errors', '1');
@@ -30,7 +30,6 @@ error_reporting(E_ALL);
 
 require_once 'utils.php';
 
-// Handle CORS for all requests
 handleCors();
 
 // Request Routing
