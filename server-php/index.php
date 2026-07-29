@@ -2,6 +2,7 @@
 
 $allowedOrigins = [
     "https://quote-forge-triples.vercel.app",
+    "https://quoteforge-phi.vercel.app",
     "http://localhost:8080",
     "http://172.27.80.1:8080",
 ];
