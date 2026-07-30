@@ -1191,13 +1191,13 @@ export default function Quotations() {
 
             <Card
               key={quotation.id}
-              className="border border-border/50 rounded-2xl overflow-hidden transition-all duration-200 hover:border-black/20 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
+              className="group border border-border/50 rounded-2xl overflow-hidden transition-all duration-200 hover:border-black/20 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
             >
               <CardContent className="p-0">
                 <div className="flex items-center justify-between gap-4 p-5">
                   <div className="flex items-center gap-4 flex-1 min-w-0">
-                    <div className="w-12 h-12 rounded-xl bg-black flex items-center justify-center flex-shrink-0">
-                      <FileText className="w-5 h-5 text-white" strokeWidth={2} />
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-105 group-hover:bg-black transition-all duration-300">
+                      <FileText className="w-5 h-5 text-primary group-hover:text-white transition-colors duration-300" strokeWidth={2} />
                     </div>
                     <div className="min-w-0">
                       <div className="flex items-center gap-3 mb-1 flex-wrap">
