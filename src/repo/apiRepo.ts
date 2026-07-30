@@ -23,7 +23,7 @@ import type { RepoSnapshot, QuotationPointTemplateRow } from "./types";
 
 import { getAuthToken, clearAuthToken } from "@/lib/auth";
 
-const API_BASE = "https://quoteforge-f20w.onrender.com/api";
+const API_BASE = "https://quoteforge-mvph.onrender.com/api";
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
     // Cache-bust so the browser never has anything to conditionally-revalidate

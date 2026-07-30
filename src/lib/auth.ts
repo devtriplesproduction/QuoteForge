@@ -25,7 +25,7 @@ export function clearAuthToken(): void {
 }
 
 export async function loginWithPassword(password: string): Promise<{ token: string } | { error: string }> {
-    const API_BASE = "https://quoteforge-f20w.onrender.com/api";
+    const API_BASE = "https://quoteforge-mvph.onrender.com/api";
     try {
         const res = await fetch(`${API_BASE}/auth/login`, {
             method: "POST",
