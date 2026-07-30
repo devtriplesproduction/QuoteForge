@@ -352,7 +352,7 @@ export default function Dashboard() {
 
   const recentQuotations = quotations
     .filter(q => !q.is_template)
-    .slice(0, 5);
+    .slice(0, 7);
 
   const statusColors: Record<string, string> = {
     draft: 'bg-muted text-muted-foreground',
