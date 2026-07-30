@@ -282,15 +282,7 @@ export default function Dashboard() {
   // Calculate KPIs
   const activeQuotations = quotations.filter((q) => !q.is_template);
 
-  const ongoingProjects = activeQuotations.filter(
-    (q) =>
-      q.status === 'accepted' &&
-      !invoices.some(
-        (i) =>
-          i.quotation_id === q.id &&
-          i.invoice_status === 'paid'
-      )
-  ).length;
+  
   const pendingPayments = invoices.filter((i) => i.invoice_status !== 'paid').length;
   // const completedProjects = activeQuotations.filter((q) => invoices.some((i) => i.quotation_id === q.id && i.invoice_status === 'paid')).length;
   const totalQuotations = quotations.filter(q => !q.is_template).length;
@@ -299,6 +291,7 @@ export default function Dashboard() {
   ).length;
   const sentQuotations = quotations.filter(q => q.status === 'sent' || q.status === 'accepted' || q.status === 'declined').length;
   const acceptedQuotations = quotations.filter(q => q.status === 'accepted').length;
+  const ongoingProjects = acceptedQuotations;
   const declinedQuotations = quotations.filter(
     q => q.status === "declined"
   ).length;
