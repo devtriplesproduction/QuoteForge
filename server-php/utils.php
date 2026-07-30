@@ -5,7 +5,6 @@ require_once 'config.php';
 function handleCors() {
 
     $allowedOrigins = [
-        "https://quote-forge-triples.vercel.app",
         "https://quoteforge-tripls.vercel.app",
         "http://localhost:8080",
         "http://172.27.80.1:8080",
