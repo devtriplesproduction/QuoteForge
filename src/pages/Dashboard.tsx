@@ -548,7 +548,7 @@ export default function Dashboard() {
                 {recentInvoices.map((invoice) => (
                   <Link
                     key={invoice.id}
-                    to={`/invoices/${invoice.id}/preview`}
+                    to={`/invoices/${invoice.id}`}
                     className="block"
                   >
                     <div className="rounded-xl border border-border/60 p-3 hover:border-black/20 transition-all">
