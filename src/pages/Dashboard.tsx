@@ -321,7 +321,7 @@ export default function Dashboard() {
       label: 'Invoiced Projects',
       value: invoicedProjects,
       icon: Receipt,
-      color: 'text-green-500',
+      color: 'text-purple-600',
     },
     {
       label: 'Sent Quotations',
@@ -359,7 +359,7 @@ export default function Dashboard() {
     sent: 'bg-primary/10 text-primary',
     accepted: 'bg-green-100 text-green-700',
     declined: 'bg-destructive/10 text-destructive',
-    expired: 'bg-muted text-muted-foreground',
+    invoiced: 'bg-purple-100 text-purple-700',
   };
 
   const recentInvoices = [...invoices]
