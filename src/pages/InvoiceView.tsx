@@ -718,7 +718,7 @@ export default function InvoiceView() {
                     }
 
                     if (copied) {
-                      toast({ title: 'Link copied', description: 'Public share link copied to clipboard. Anyone with this link can view the invoice.' });
+                      toast({ title: 'Link copied', description: 'Link Copied to clipboard!' });
                     } else {
                       toast({ title: 'Copy blocked', description: 'Could not copy link.' });
                     }
