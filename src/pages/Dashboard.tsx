@@ -362,6 +362,14 @@ export default function Dashboard() {
     expired: 'bg-muted text-muted-foreground',
   };
 
+  const recentInvoices = [...invoices]
+    .sort(
+      (a, b) =>
+        new Date(b.created_at).getTime() -
+        new Date(a.created_at).getTime()
+    )
+    .slice(0, 3);
+
 
   return (
     <div className="space-y-8 animate-fade-in">
@@ -524,6 +532,56 @@ export default function Dashboard() {
                 </div>
               </div>
             </Link>
+          </CardContent>
+        </Card>
+
+        <Card className="glass-card border border-border/60">
+          <CardHeader className="pb-4 border-b border-border/50">
+            <CardTitle className="font-heading text-lg">
+              Recent Invoices
+            </CardTitle>
+          </CardHeader>
+
+          <CardContent className="pt-4">
+            <div className="space-y-3">
+              {recentInvoices.map((invoice) => (
+                <Link
+                  key={invoice.id}
+                  to={`/invoices/${invoice.id}/preview`}
+                  className="block"
+                >
+                  <div className="rounded-xl border border-border/60 p-3 hover:border-black/20 transition-all">
+
+                    <div className="flex justify-between items-center">
+
+                      <div>
+                        <p className="font-semibold">
+                          {invoice.invoice_number}
+                        </p>
+
+                        <p className="text-sm text-muted-foreground truncate">
+                          {invoice.client?.business_name ||
+                            invoice.client?.name}
+                        </p>
+                      </div>
+
+                      <Badge>
+                        {invoice.invoice_status}
+                      </Badge>
+
+                    </div>
+
+                    <p className="mt-2 font-heading font-semibold">
+                      {formatCurrency(
+                        invoice.total,
+                        invoice.currency
+                      )}
+                    </p>
+
+                  </div>
+                </Link>
+              ))}
+            </div>
           </CardContent>
         </Card>
       </div>
