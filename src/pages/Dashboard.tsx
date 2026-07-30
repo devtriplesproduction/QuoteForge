@@ -370,6 +370,12 @@ export default function Dashboard() {
     )
     .slice(0, 3);
 
+  const invoiceStatusColors: Record<string, string> = {
+    paid: "bg-green-100 text-green-700 hover:bg-green-100",
+    sent: "bg-blue-100 text-blue-700 hover:bg-blue-100",
+    draft: "bg-muted text-muted-foreground hover:bg-muted",
+  };
+
 
   return (
     <div className="space-y-8 animate-fade-in">
@@ -566,8 +572,14 @@ export default function Dashboard() {
                           </p>
                         </div>
 
-                        <Badge>
-                          {invoice.invoice_status}
+
+                        <Badge
+                          className={`rounded-full px-3 py-1 font-medium ${invoiceStatusColors[invoice.invoice_status] ||
+                            "bg-muted text-muted-foreground"
+                            }`}
+                        >
+                          {invoice.invoice_status.charAt(0).toUpperCase() +
+                            invoice.invoice_status.slice(1)}
                         </Badge>
 
                       </div>
