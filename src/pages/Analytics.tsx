@@ -725,7 +725,15 @@ export default function Analytics() {
               <LineChart data={trendData} margin={{ left: 8, right: 8 }}>
                 <CartesianGrid vertical={false} strokeDasharray="3 3" />
                 <XAxis dataKey="label" tickLine={false} axisLine={false} />
-                <YAxis allowDecimals={false} tickLine={false} axisLine={false} />
+                <YAxis
+                  allowDecimals={false}
+                  tickLine={false}
+                  axisLine={false}
+                  domain={[0, (dataMax: number) => {
+                    const padded = dataMax + Math.max(2, Math.ceil(dataMax * 0.15));
+                    return Math.ceil(padded / 3) * 3; // round up to nearest multiple of 3
+                  }]}
+                />
                 <ChartTooltip content={<ChartTooltipContent />} />
                 <Line
                   type="monotone"
