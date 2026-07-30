@@ -282,7 +282,7 @@ export default function Dashboard() {
   // Calculate KPIs
   const activeQuotations = quotations.filter((q) => !q.is_template);
 
-  
+
   const pendingPayments = invoices.filter((i) => i.invoice_status !== 'paid').length;
   // const completedProjects = activeQuotations.filter((q) => invoices.some((i) => i.quotation_id === q.id && i.invoice_status === 'paid')).length;
   const totalQuotations = quotations.filter(q => !q.is_template).length;
@@ -305,7 +305,7 @@ export default function Dashboard() {
       color: 'text-foreground',
     },
     {
-      label: 'Pending Payments',
+      label: 'Unpaid Invoices',
       value: pendingPayments,
       icon: Receipt,
       color: 'text-amber-600',
@@ -336,17 +336,18 @@ export default function Dashboard() {
       color: 'text-green-500'
     },
     {
-      label: 'Conversion Rate',
-      value: `${conversionRate}%`,
-      icon: TrendingUp,
-      color: 'text-accent'
-    },
-    {
       label: 'Declined Quotations',
       value: declinedQuotations,
       icon: FileText,
       color: 'text-destructive'
     },
+    {
+      label: 'Conversion Rate',
+      value: `${conversionRate}%`,
+      icon: TrendingUp,
+      color: 'text-accent'
+    },
+
   ];
 
   const recentQuotations = quotations
