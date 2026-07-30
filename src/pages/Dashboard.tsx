@@ -488,12 +488,13 @@ export default function Dashboard() {
         </Card>
 
         {/* Quick Actions */}
-        <Card className="glass-card border border-border/60">
-          <CardHeader className="pb-4 border-b border-border/50">
-            <CardTitle className="font-heading text-lg">Quick Actions</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3 pt-5">
-            {/* <Link to="/quotations/new" className="block">
+        <div className="space-y-6">
+          <Card className="glass-card border border-border/60">
+            <CardHeader className="pb-4 border-b border-border/50">
+              <CardTitle className="font-heading text-lg">Quick Actions</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3 pt-5">
+              {/* <Link to="/quotations/new" className="block">
               <div className="p-4 rounded-xl bg-black hover:bg-black/90 transition-colors group cursor-pointer shadow-sm hover:shadow-md">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center group-hover:scale-105 transition-transform">
@@ -506,84 +507,85 @@ export default function Dashboard() {
                 </div>
               </div>
             </Link> */}
-            <Link to="/clients" className="block">
-              <div className="p-4 rounded-xl bg-secondary hover:bg-secondary/80 border border-transparent hover:border-black/10 transition-all group cursor-pointer">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:scale-105 transition-transform">
-                    <Users className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-foreground">Add Client</p>
-                    <p className="text-sm text-muted-foreground">Register new client</p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-            <Link to="/analytics" className="block">
-              <div className="p-4 rounded-xl bg-secondary hover:bg-secondary/80 border border-transparent hover:border-black/10 transition-all group cursor-pointer">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center group-hover:scale-105 transition-transform">
-                    <TrendingUp className="w-5 h-5 text-accent" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-foreground">View Analytics</p>
-                    <p className="text-sm text-muted-foreground">Performance insights</p>
+              <Link to="/clients" className="block">
+                <div className="p-4 rounded-xl bg-secondary hover:bg-secondary/80 border border-transparent hover:border-black/10 transition-all group cursor-pointer">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:scale-105 transition-transform">
+                      <Users className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">Add Client</p>
+                      <p className="text-sm text-muted-foreground">Register new client</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
-          </CardContent>
-        </Card>
+              </Link>
+              <Link to="/analytics" className="block">
+                <div className="p-4 rounded-xl bg-secondary hover:bg-secondary/80 border border-transparent hover:border-black/10 transition-all group cursor-pointer">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center group-hover:scale-105 transition-transform">
+                      <TrendingUp className="w-5 h-5 text-accent" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">View Analytics</p>
+                      <p className="text-sm text-muted-foreground">Performance insights</p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </CardContent>
+          </Card>
 
-        <Card className="glass-card border border-border/60">
-          <CardHeader className="pb-4 border-b border-border/50">
-            <CardTitle className="font-heading text-lg">
-              Recent Invoices
-            </CardTitle>
-          </CardHeader>
+          <Card className="glass-card border border-border/60">
+            <CardHeader className="pb-4 border-b border-border/50">
+              <CardTitle className="font-heading text-lg">
+                Recent Invoices
+              </CardTitle>
+            </CardHeader>
 
-          <CardContent className="pt-4">
-            <div className="space-y-3">
-              {recentInvoices.map((invoice) => (
-                <Link
-                  key={invoice.id}
-                  to={`/invoices/${invoice.id}/preview`}
-                  className="block"
-                >
-                  <div className="rounded-xl border border-border/60 p-3 hover:border-black/20 transition-all">
+            <CardContent className="pt-4">
+              <div className="space-y-3">
+                {recentInvoices.map((invoice) => (
+                  <Link
+                    key={invoice.id}
+                    to={`/invoices/${invoice.id}/preview`}
+                    className="block"
+                  >
+                    <div className="rounded-xl border border-border/60 p-3 hover:border-black/20 transition-all">
 
-                    <div className="flex justify-between items-center">
+                      <div className="flex justify-between items-center">
 
-                      <div>
-                        <p className="font-semibold">
-                          {invoice.invoice_number}
-                        </p>
+                        <div>
+                          <p className="font-semibold">
+                            {invoice.invoice_number}
+                          </p>
 
-                        <p className="text-sm text-muted-foreground truncate">
-                          {invoice.client?.business_name ||
-                            invoice.client?.name}
-                        </p>
+                          <p className="text-sm text-muted-foreground truncate">
+                            {invoice.client?.business_name ||
+                              invoice.client?.name}
+                          </p>
+                        </div>
+
+                        <Badge>
+                          {invoice.invoice_status}
+                        </Badge>
+
                       </div>
 
-                      <Badge>
-                        {invoice.invoice_status}
-                      </Badge>
+                      <p className="mt-2 font-heading font-semibold">
+                        {formatCurrency(
+                          invoice.total,
+                          invoice.currency
+                        )}
+                      </p>
 
                     </div>
-
-                    <p className="mt-2 font-heading font-semibold">
-                      {formatCurrency(
-                        invoice.total,
-                        invoice.currency
-                      )}
-                    </p>
-
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+                  </Link>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
