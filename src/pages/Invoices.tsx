@@ -362,8 +362,8 @@ export default function Invoices() {
                 key={m}
                 onClick={() => setPaidMethodFilter(m)}
                 className={`px-3 h-9 rounded-lg border text-xs font-semibold transition-all ${paidMethodFilter === m
-                  ? 'bg-emerald-600 text-white border-emerald-600 shadow-sm'
-                  : 'bg-background border-border/70 text-muted-foreground hover:border-emerald-400/50 hover:text-foreground'
+                    ? 'bg-black text-white border-black shadow-sm'
+                    : 'bg-background border-border/70 text-muted-foreground hover:border-black/30 hover:text-foreground'
                   }`}
                 type="button"
               >
