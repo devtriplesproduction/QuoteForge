@@ -398,7 +398,7 @@ export default function Step2ServicesAndPricing(
                                 return (
                                     <div
                                         key={`${b.service_id}-${idx}`}
-                                        className="p-4 rounded-xl border border-black bg-[#e5e5e5] space-y-4 transition-all duration-300 shadow-[0_0_20px_rgba(168,85,247,0.2)]">
+                                        className="p-4 rounded-xl border border-black bg-zinc-100 space-y-4 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.12)]">
 
                                         {/* Header */}
                                         <div className="flex items-start justify-between gap-4">
