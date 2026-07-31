@@ -257,7 +257,7 @@ export function ReceiptLayout({
                       <span className="font-semibold text-gray-900 text-xs">{row.name}</span>
                     </td>
                     <td className="py-5 px-5 align-top border-l border-gray-200">
-                      <span className="inline-block px-2 py-1rounded text-[10px] font-medium bg-gray-100 text-gray-600 uppercase">
+                      <span className="inline-block px-4 py-3 rounded text-[10px] font-medium bg-gray-100 text-gray-600 uppercase">
                         {row.type}
                       </span>
                     </td>
