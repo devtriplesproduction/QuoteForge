@@ -339,7 +339,7 @@ export default function PublicInvoice() {
       </div>
 
       {invoice.invoice_status !== 'paid' && (
-        <div className="no-print">
+        <div className="no-print doc">
           <PaymentMethodSelector
             invoiceId={invoice.id}
             invoiceNumber={invoice.invoice_number}
