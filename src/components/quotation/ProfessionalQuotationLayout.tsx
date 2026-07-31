@@ -1001,7 +1001,7 @@ export default function ProfessionalQuotationDocument({
                         FORMAL PROPOSAL
                     </p>
                     <h1
-                        className="text-[28px] sm:text-[40px] tracking-[0.2em] sm:tracking-[0.35em] text-gray-900 font-light break-words"
+                        className="text-[26px] sm:text-[40px] tracking-[0.12em] sm:tracking-[0.35em] text-gray-900 font-light whitespace-nowrap"
                         style={{ fontFamily: "var(--font-heading, inherit)" }}
                     >
                         QUOTATION

@@ -4147,16 +4147,16 @@ export default function QuotationBuilder() {
           const pq = previewQuotation ?? buildPreviewQuotation();
           if (!pq) return null;
           return (
-            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,840px)_clamp(320px,26vw,400px)] gap-8 w-full max-w-[1320px] mx-auto justify-center">
-              <div className="min-w-0 flex justify-center rounded-2xl bg-muted/30 p-4 sm:p-8">
+            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_clamp(260px,20vw,300px)] gap-6 w-full max-w-[1500px] mx-auto">
+              <div className="min-w-0 flex justify-center rounded-2xl bg-muted/30 p-3 sm:p-5">
                 {/* <QuotationLayout quotation={pq} brandKit={brandKit} mode="screen" /> */}
-                <div className="w-full shadow-lg rounded-sm overflow-hidden">
+                <div className="w-full max-w-[210mm] shadow-lg rounded-sm overflow-hidden">
                   <ProfessionalQuotationLayout quotation={pq} brandKit={brandKit} />
                 </div>
               </div>
 
               <aside className="no-print lg:sticky lg:top-6 h-fit min-w-0">
-                <div className="glass-card p-6 sm:p-7 space-y-4">
+                <div className="glass-card p-5 space-y-4">
                   <div className="min-w-0">
                     <p className="text-xs uppercase tracking-wider text-muted-foreground">Review</p>
                     <p className="font-heading font-bold text-xl text-foreground mt-1 truncate">{pq.client?.business_name || pq.client?.name || "Client"}</p>
