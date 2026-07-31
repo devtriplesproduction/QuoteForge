@@ -200,7 +200,7 @@ export default function Step3ServiceDetails({
                                                         <RichEditor
                                                             value={b.payment_terms || ""}
                                                             onChange={(val) => updateBlock(idx, { payment_terms: val })}
-                                                            className="min-h-[100px] max-h-[280px] overflow-y-auto rounded-xl border border-border/70"
+                                                            className="min-h-[160px] max-h-[400px] overflow-y-auto rounded-xl border border-border/70"
                                                             placeholder="Optional payment terms..."
                                                         />
                                                     </div>
@@ -215,7 +215,7 @@ export default function Step3ServiceDetails({
                                                         <RichEditor
                                                             value={b.service_terms || ""}
                                                             onChange={(val) => updateBlock(idx, { service_terms: val })}
-                                                            className="min-h-[100px] max-h-[280px] overflow-y-auto rounded-xl border border-border/70"
+                                                            className="min-h-[160px] max-h-[400px] overflow-y-auto rounded-xl border border-border/70"
                                                             placeholder="Optional terms..."
                                                         />
                                                     </div>
@@ -230,7 +230,7 @@ export default function Step3ServiceDetails({
                                                         <RichEditor
                                                             value={b.terms_conditions_text || ""}
                                                             onChange={(val) => updateBlock(idx, { terms_conditions_text: val })}
-                                                            className="min-h-[100px] max-h-[280px] overflow-y-auto rounded-xl border border-border/70"
+                                                            className="min-h-[160px] max-h-[400px] overflow-y-auto rounded-xl border border-border/70"
                                                             placeholder="Terms & conditions specific to this service..."
                                                         />
                                                     </div>
