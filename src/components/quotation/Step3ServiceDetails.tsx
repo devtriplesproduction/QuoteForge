@@ -50,7 +50,7 @@ export default function Step3ServiceDetails({
             <div className="space-y-6 min-w-0">
                 <div className="flex flex-wrap items-end justify-between gap-4 border-b border-border pb-4">
                     <div>
-                        <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-bold mb-1">Step 3</p>
+                        <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-bold mb-1"></p>
                         <h2 className="text-2xl font-heading font-bold text-foreground">Service Details</h2>
                         <p className="text-sm text-muted-foreground mt-1">Define scope, deliverables, and terms for each service.</p>
                     </div>
