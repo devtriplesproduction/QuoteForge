@@ -364,7 +364,7 @@ export default function PublicInvoice() {
         <InvoiceLayout invoice={invoice} items={items} brandKit={displayBrand} mode="screen" />
       </div>
 
-      <div className="text-xs text-muted-foreground">
+      <div className="doc text-xs text-muted-foreground">
         Status: {invoice.status.toUpperCase()} • Amount due: {(invoice.amount_due || 0).toLocaleString()} {invoice.currency || currency}
       </div>
     </div>
