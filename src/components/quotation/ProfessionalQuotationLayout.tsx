@@ -861,6 +861,16 @@
 // (left-hand side identifiers are untouched) to match your project if they
 // don't resolve.
 
+// NOTE ON IMPORT PATHS:
+// This file was generated outside your repo, so the exact alias paths for
+// `formatCurrency`, `RichTextDisplay`, the `BrandKit` / `Client` / `Quotation`
+// types, `DEFAULT_PAYMENT_TERMS` / `DEFAULT_TERMS_CONDITIONS`, and
+// `getQuotationServiceBlocks` / `getQuotationTotalsForDisplay` are not visible
+// to me. I've mirrored the paths used by the sibling `QuotationDocument.tsx`
+// as closely as I could infer them below — adjust the path strings only
+// (left-hand side identifiers are untouched) to match your project if they
+// don't resolve.
+
 import React from "react";
 import { formatCurrency } from "@/lib/types";
 import type { BrandKit, Client, Quotation } from "@/lib/types";
@@ -996,7 +1006,7 @@ export default function ProfessionalQuotationDocument({
                 <div className="border-t-2 border-gray-900 mb-14" />
 
                 {/* Title Block */}
-                <div className="text-center mb-14">
+                <div className="text-left mb-14">
                     <p className="text-[10px] tracking-[0.3em] text-gray-400 mb-3">
                         FORMAL PROPOSAL
                     </p>
@@ -1006,7 +1016,7 @@ export default function ProfessionalQuotationDocument({
                     >
                         QUOTATION
                     </h1>
-                    <div className="flex items-center justify-center gap-2 mt-5">
+                    <div className="flex items-center justify-start gap-2 mt-5">
                         <span className="h-px w-10 bg-gray-300" />
                         <span className="h-1 w-1 rotate-45 bg-gray-300" />
                         <span className="h-px w-10 bg-gray-300" />
