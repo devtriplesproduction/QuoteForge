@@ -223,7 +223,7 @@ export default function PublicReceipt() {
 
     return (
         <div className="quotation-preview-page max-w-[1100px] mx-auto p-4 md:p-6 space-y-6" style={{ background: "#ffffff" }}>
-            <div className="no-print">
+            <div className="no-print doc">
                 <Button className="rounded-xl" onClick={handleDownloadPdf}>
                     Download Receipt PDF
                 </Button>

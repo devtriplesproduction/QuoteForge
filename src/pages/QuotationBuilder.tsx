@@ -8,7 +8,6 @@ import { pdf } from "@react-pdf/renderer";
 import Step1BasicInfo from "@/components/quotation/Step1BasicInfo";
 import Step2ServicesAndPricing from "@/components/quotation/Step2ServicesAndPricing";
 import Step3ServiceDetails from "@/components/quotation/Step3ServiceDetails";
-
 import {
   generateMilestones,
   updateMilestonePercentage,
@@ -1276,11 +1275,8 @@ export default function QuotationBuilder() {
 
       {/* Header */}
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 sm:gap-6">
-        <div className="relative min-w-0 pl-6 sm:pl-8">
-          <Link
-            to="/quotations"
-            className="absolute left-0 -translate-x-full -ml-2 sm:-ml-3 top-1/2 -translate-y-1/2"
-          >
+        <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+          <Link to="/quotations" className="shrink-0">
             <Button variant="ghost" size="icon" className="rounded-xl">
               <ArrowLeft className="w-5 h-5" />
             </Button>
