@@ -114,9 +114,9 @@ export default function ProfessionalQuotationDocument({
     return (
         <div
             data-quotation-doc
-            className="bg-white text-gray-800 mx-auto"
+            className="bg-white text-gray-800 mx-auto w-full"
             style={{
-                width: "210mm",
+                maxWidth: "210mm",
                 minHeight: "297mm",
                 fontFamily: "var(--font-body, 'Helvetica Neue', Arial, sans-serif)",
             }}
