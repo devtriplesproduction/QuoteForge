@@ -123,7 +123,10 @@ export function updateMilestonePercentage(
 
         if (m.id !== id) return m;
 
-        const safe = Math.max(0, Number(percentage) || 0);
+        const safe = Math.min(
+            100,
+            Math.max(0, Number(percentage) || 0)
+        );
 
         return {
 

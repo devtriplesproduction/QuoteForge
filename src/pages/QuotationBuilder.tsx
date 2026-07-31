@@ -2343,7 +2343,13 @@ export default function QuotationBuilder() {
                                         value={m.percentage}
                                         className="pr-8"
                                         onChange={(e) => {
-                                          const percentage = parseInt(e.target.value.replace(/^0+(?=\d)/, ""), 10) || 0;
+                                          const percentage = Math.min(
+                                            100,
+                                            Math.max(
+                                              0,
+                                              parseInt(e.target.value.replace(/^0+(?=\d)/, ""), 10) || 0
+                                            )
+                                          );
 
                                           const updated = updateMilestonePercentage(
                                             b.milestone_template ?? [],
