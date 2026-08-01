@@ -127,7 +127,7 @@ export function ReceiptLayout({
   }, [invoice, quotation, receipt, invoiceNumber, invoiceItems]);
 
   return (
-    <div className="doc" data-receipt-doc>
+    <div className="doc mx-auto" data-receipt-doc style={{ maxWidth: '850px' }}>
       {/* 
         A4 Min Height ~ 1123px (297mm @ 96dpi). 
         To prevent footer collapse, we use min-h-[1100px] and flex-col layout.
