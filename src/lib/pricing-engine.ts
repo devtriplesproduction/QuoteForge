@@ -9,9 +9,21 @@ import type { ServiceConfig } from "@/lib/service-configs";
 
 /** State shape stored per service block for dynamic configs. */
 export type ServiceConfigState =
-  | { type: "quantity"; values: { [fieldKey: string]: number } }
-  | { type: "dual-quantity"; values: { [fieldKey: string]: number } }
-  | { type: "platform-select"; selected: { [platformKey: string]: boolean } };
+  | {
+    type: "quantity";
+    values: { [fieldKey: string]: number };
+    rates?: { [fieldKey: string]: number };
+  }
+  | {
+    type: "dual-quantity";
+    values: { [fieldKey: string]: number };
+    rates?: { [fieldKey: string]: number };
+  }
+  | {
+    type: "platform-select";
+    selected: { [platformKey: string]: boolean };
+    rates?: { [platformKey: string]: number };
+  };
 
 export function calculateQuantityPrice(
   config: ServiceConfig,
@@ -21,7 +33,11 @@ export function calculateQuantityPrice(
   if (state.type !== "quantity") return 0;
 
   const qty = Number(state.values[config.field.key] ?? config.field.defaultValue);
-  return qty * config.field.rate;
+  const rate =
+    state.rates?.[config.field.key] ??
+    config.field.rate;
+
+  return qty * rate;
 }
 
 export function calculateDualQuantityPrice(
@@ -38,7 +54,15 @@ export function calculateDualQuantityPrice(
   // e.g. YouTube Editing: (videos * videoRate) + (minutes * minuteRate)
   // Matches spec: "Final price = Videos * Minutes" is actually additive per-unit rates,
   // confirmed against the brief's worked examples (videos priced independently of minutes).
-  return a * fieldA.rate + b * fieldB.rate;
+  const rateA =
+    state.rates?.[fieldA.key] ??
+    fieldA.rate;
+
+  const rateB =
+    state.rates?.[fieldB.key] ??
+    fieldB.rate;
+
+  return a * rateA + b * rateB;
 }
 
 export function calculatePlatformSelectPrice(

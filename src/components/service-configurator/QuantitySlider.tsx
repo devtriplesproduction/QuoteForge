@@ -7,14 +7,28 @@ import type { QuantityFieldConfig } from "@/lib/service-configs";
 
 interface QuantitySliderProps {
   field: QuantityFieldConfig;
+
   value: number;
+
+  rate: number;
+
   onChange: (value: number) => void;
+
+  onRateChange: (rate: number) => void;
+
   currency: "INR" | "USD";
 }
 
-export default function QuantitySlider({ field, value, onChange, currency }: QuantitySliderProps) {
+export default function QuantitySlider({
+  field,
+  value,
+  rate,
+  onRateChange,
+  onChange,
+  currency,
+}: QuantitySliderProps) {
   const symbol = currency === "INR" ? "₹" : "$";
-  const lineTotal = value * field.rate;
+  const lineTotal = value * rate;
 
   return (
     <div className="space-y-2.5">
@@ -23,11 +37,27 @@ export default function QuantitySlider({ field, value, onChange, currency }: Qua
           {field.label}
         </Label>
         <span className="text-sm font-semibold text-foreground">
-          {value} × {symbol}{field.rate.toLocaleString()} = {symbol}{lineTotal.toLocaleString()}
+          {value} × {symbol}{rate.toLocaleString()} = {symbol}{lineTotal.toLocaleString()}
         </span>
       </div>
 
       <div className="flex items-center gap-3">
+        <div className="space-y-2">
+
+          <Label className="text-xs uppercase tracking-wide font-bold">
+            Price Per Unit
+          </Label>
+
+          <Input
+            type="number"
+            value={rate}
+            min={0}
+            onChange={(e) =>
+              onRateChange(Number(e.target.value) || 0)
+            }
+          />
+
+        </div>
         <Slider
           value={[value]}
           min={field.min}
