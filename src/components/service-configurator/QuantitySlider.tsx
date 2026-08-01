@@ -31,53 +31,73 @@ export default function QuantitySlider({
   const lineTotal = value * rate;
 
   return (
-    <div className="space-y-2.5">
-      <div className="flex items-center justify-between">
-        <Label className="text-xs uppercase tracking-wide text-foreground font-bold">
-          {field.label}
+    <div className="space-y-5">
+
+      {/* Price Per Unit */}
+      <div className="space-y-2">
+        <Label className="text-xs uppercase tracking-wide font-bold">
+          Price Per Unit
         </Label>
-        <span className="text-sm font-semibold text-foreground">
-          {value} × {symbol}{rate.toLocaleString()} = {symbol}{lineTotal.toLocaleString()}
-        </span>
+
+        <Input
+          type="number"
+          value={rate}
+          min={0}
+          onChange={(e) =>
+            onRateChange(Number(e.target.value) || 0)
+          }
+          className="h-12 rounded-2xl"
+        />
       </div>
 
-      <div className="flex items-center gap-3">
-        <div className="space-y-2">
+      {/* Quantity Slider */}
+      <Slider
+        value={[value]}
+        min={field.min}
+        max={field.max}
+        step={field.step || 1}
+        onValueChange={([v]) => onChange(v)}
+        className="w-full"
+      />
 
-          <Label className="text-xs uppercase tracking-wide font-bold">
-            Price Per Unit
-          </Label>
+      {/* Bottom Calculation */}
+      <div className="grid grid-cols-[110px_30px_1fr_30px_1fr] items-center gap-3">
 
-          <Input
-            type="number"
-            value={rate}
-            min={0}
-            onChange={(e) =>
-              onRateChange(Number(e.target.value) || 0)
-            }
-          />
-
-        </div>
-        <Slider
-          value={[value]}
-          min={field.min}
-          max={field.max}
-          step={field.step || 1}
-          onValueChange={([v]) => onChange(v)}
-          className="flex-1"
-        />
+        {/* Quantity */}
         <Input
           type="number"
           min={field.min}
           max={field.max}
           value={value}
           onChange={(e) => {
-            const next = Math.min(field.max, Math.max(field.min, Number(e.target.value) || field.min));
+            const next = Math.min(
+              field.max,
+              Math.max(field.min, Number(e.target.value) || field.min)
+            );
+
             onChange(next);
           }}
-          className="w-20 rounded-xl"
+          className="h-12 rounded-2xl text-center"
         />
+
+        <div className="text-center text-xl">
+          ×
+        </div>
+
+        <div className="text-center font-semibold">
+          {symbol}{rate.toLocaleString()}
+        </div>
+
+        <div className="text-center text-xl">
+          =
+        </div>
+
+        <div className="text-right font-bold text-2xl">
+          {symbol}{lineTotal.toLocaleString()}
+        </div>
+
       </div>
+
     </div>
   );
 }
