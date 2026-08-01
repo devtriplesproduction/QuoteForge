@@ -253,18 +253,18 @@ export function ReceiptLayout({
               <tbody className="divide-y divide-gray-200">
                 {rows.map((row, idx) => (
                   <tr key={idx} className="hover:bg-gray-50/50">
-                    <td className="py-3 pl-4 pr-2 align-top">
+                    <td className="py-3 pl-4 pr-2 align-middle">
                       <span className="font-semibold text-gray-900 text-xs">{row.name}</span>
                     </td>
-                    <td className="py-3 px-2 align-top border-l border-gray-200">
+                    <td className="py-3 px-2 align-middle border-l border-gray-200">
                       <span className="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium bg-gray-100 text-gray-600 uppercase">
                         {row.type}
                       </span>
                     </td>
-                    <td className="py-3 px-2 align-top text-gray-500 leading-relaxed text-[11px] border-l border-gray-200">
+                    <td className="py-3 px-2 align-middle text-gray-500 leading-relaxed text-[11px] border-l border-gray-200">
                       {row.desc || '—'}
                     </td>
-                    <td className="py-3 pr-4 pl-2 align-top text-gray-900 font-bold text-right font-mono text-xs border-l border-gray-200">
+                    <td className="py-3 pr-4 pl-2 align-middle text-gray-900 font-bold text-right font-mono text-xs border-l border-gray-200">
                       {formatCurrency(row.amount, cur)}
                     </td>
                   </tr>
