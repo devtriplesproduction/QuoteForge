@@ -103,13 +103,26 @@ export function getDefaultServiceConfigState(config: ServiceConfig): ServiceConf
     case "quantity":
       return {
         type: "quantity",
-        values: { [config.field!.key]: config.field!.defaultValue },
+        values: {
+          [config.field!.key]: config.field!.defaultValue,
+        },
+        rates: {
+          [config.field!.key]: config.field!.rate,
+        },
       };
     case "dual-quantity": {
       const [a, b] = config.fields!;
+
       return {
         type: "dual-quantity",
-        values: { [a.key]: a.defaultValue, [b.key]: b.defaultValue },
+        values: {
+          [a.key]: a.defaultValue,
+          [b.key]: b.defaultValue,
+        },
+        rates: {
+          [a.key]: a.rate,
+          [b.key]: b.rate,
+        },
       };
     }
     case "platform-select":
