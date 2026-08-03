@@ -335,9 +335,10 @@ export default function PublicInvoice() {
 
   return (
 
-    <div className="quotation-preview-page max-w-[1100px] mx-auto p-4 md:p-6 space-y-6" style={{ background: '#ffffff' }}>
-      <div className="no-print">
-        <Button className="rounded-xl" onClick={handleDownloadPdf}>
+    <div className="quotation-preview-page max-w-[1100px] mx-auto p-4 md:p-6 space-y-6 overflow-x-hidden" style={{ background: '#ffffff' }}>
+      <div className="no-print flex justify-start" style={{ marginLeft: 0, marginRight: 0 }}>
+        <Button className="rounded-xl gap-2" onClick={handleDownloadPdf}>
+          <Download className="w-4 h-4" />
           Download Invoice PDF
         </Button>
       </div>

@@ -1274,20 +1274,20 @@ export default function InvoiceView() {
 
   return (
     <div className="quotation-preview-page">
-      <div className="quotation-preview-actions no-print">
-        <div className="flex items-center gap-4">
-          <Link to="/invoices">
+      <div className="quotation-preview-actions no-print" style={{ alignItems: "center" }}>
+        <div className="flex items-start gap-3" style={{ alignItems: "center" }}>
+          <Link to="/invoices" className="shrink-0">
             <Button variant="ghost" size="icon" className="rounded-xl">
               <ArrowLeft className="w-5 h-5" />
             </Button>
           </Link>
-          <div>
-            <h1 className="quotation-preview-title">Invoice</h1>
-            <p className="quotation-preview-subtitle mt-1">{invoice.invoice_number}</p>
+          <div className="min-w-0">
+            <h1 className="quotation-preview-title leading-tight">Invoice</h1>
+            <p className="quotation-preview-subtitle mt-0.5">{invoice.invoice_number}</p>
           </div>
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2 shrink-0">
           <Button className="gap-2 rounded-xl" onClick={handleDownloadPdf}>
             <Download className="w-4 h-4" /> Download PDF
           </Button>
