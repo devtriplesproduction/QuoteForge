@@ -61,8 +61,9 @@ export default function Step1BasicInfo(props: Step1BasicInfoProps) {
 
     return (
         <>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-2 sm:mt-4">
-                <div className="lg:col-span-2 space-y-6 min-w-0">
+            {/* Equal 50/50 split between Basic Info and Client Summary */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-2 sm:mt-4">
+                <div className="space-y-6 min-w-0">
                     <Card className="relative rounded-2xl border border-border/60 shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden">
                         {/* Thick left accent bar */}
                         <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-foreground" />
