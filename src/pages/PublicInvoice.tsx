@@ -336,47 +336,50 @@ export default function PublicInvoice() {
   }
 
   return (
-
-    <div className="quotation-preview-page max-w-[1100px] mx-auto p-4 md:p-6 space-y-6 overflow-x-hidden" style={{ background: '#ffffff' }}>
-      <div className="no-print flex justify-start" style={{ marginLeft: 0, marginRight: 0 }}>
-        <Button className="rounded-xl gap-2" onClick={handleDownloadPdf}>
-          <Download className="w-4 h-4" />
-          Download Invoice PDF
-        </Button>
-      </div>
-
-      {invoice.invoice_status !== 'paid' && (
-        <div className="no-print doc">
-          <PaymentMethodSelector
-            invoiceId={invoice.id}
-            invoiceNumber={invoice.invoice_number}
-            clientName={invoice.client?.business_name || invoice.client?.name}
-            clientEmail={invoice.client?.email}
-            paymentNotes={invoice.notes}
-            existingPaymentMethod={invoice.payment_method}
-            onPaymentConfirmed={async () => {
-              const repo = getRepo();
-              const inv = await repo.getInvoice(invoice.id);
-              if (inv) {
-                setDirectInvoice(inv);
-                const its = await repo.listInvoiceItemsByInvoice(invoice.id);
-                setDirectItems(its);
-              }
-            }}
-          />
+    <div className="quotation-preview-page overflow-x-hidden" style={{ background: '#ffffff' }}>
+      {/* Isolated layout wrapper — pure Tailwind, no dependency on
+          .quotation-preview-page's own padding/width rules, which is what
+          was causing the Download button to sit outside the cards below it
+          while everything else stayed aligned. */}
+      <div className="max-w-[1100px] mx-auto px-4 md:px-6 py-4 md:py-6 space-y-6">
+        <div className="no-print flex justify-start">
+          <Button className="rounded-xl gap-2" onClick={handleDownloadPdf}>
+            <Download className="w-4 h-4" />
+            Download Invoice PDF
+          </Button>
         </div>
-      )}
 
-      <div data-doc-quotation-status={invoice.quotation?.status || 'draft'}>
-        <InvoiceLayout invoice={invoice} items={items} brandKit={displayBrand} mode="screen" />
-      </div>
+        {invoice.invoice_status !== 'paid' && (
+          <div className="no-print doc">
+            <PaymentMethodSelector
+              invoiceId={invoice.id}
+              invoiceNumber={invoice.invoice_number}
+              clientName={invoice.client?.business_name || invoice.client?.name}
+              clientEmail={invoice.client?.email}
+              paymentNotes={invoice.notes}
+              existingPaymentMethod={invoice.payment_method}
+              onPaymentConfirmed={async () => {
+                const repo = getRepo();
+                const inv = await repo.getInvoice(invoice.id);
+                if (inv) {
+                  setDirectInvoice(inv);
+                  const its = await repo.listInvoiceItemsByInvoice(invoice.id);
+                  setDirectItems(its);
+                }
+              }}
+            />
+          </div>
+        )}
 
-      <div className="doc text-xs text-muted-foreground">
-        Status: {invoice.status.toUpperCase()} • Amount due: {(invoice.amount_due || 0).toLocaleString()} {invoice.currency || currency}
+        <div data-doc-quotation-status={invoice.quotation?.status || 'draft'}>
+          <InvoiceLayout invoice={invoice} items={items} brandKit={displayBrand} mode="screen" />
+        </div>
+
+        <div className="doc text-xs text-muted-foreground">
+          Status: {invoice.status.toUpperCase()} • Amount due: {(invoice.amount_due || 0).toLocaleString()} {invoice.currency || currency}
+        </div>
       </div>
     </div>
-
-
   );
 
 }
