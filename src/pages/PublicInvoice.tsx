@@ -8,6 +8,8 @@ import { type BrandKit, type Invoice, type InvoiceItem } from '@/lib/types';
 import { InvoiceLayout } from '@/components/documents/InvoiceLayout';
 import triplesLogo from "/public/triplesimage.png";
 import { PaymentMethodSelector } from '@/components/invoices/PaymentMethodSelector';
+import { Download } from 'lucide-react';
+
 
 const INVOICE_LOADING_MESSAGES = [
   "Loading invoice...",
