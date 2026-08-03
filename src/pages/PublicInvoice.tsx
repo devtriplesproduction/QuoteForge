@@ -345,7 +345,7 @@ export default function PublicInvoice() {
         <div className="no-print flex justify-start">
           <Button className="rounded-xl gap-2" onClick={handleDownloadPdf}>
             <Download className="w-4 h-4" />
-            Download Invoice PDF
+            Download PDF
           </Button>
         </div>
 
