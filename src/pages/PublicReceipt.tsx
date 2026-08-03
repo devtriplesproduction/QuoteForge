@@ -163,13 +163,17 @@ export default function PublicReceipt() {
                         style={{ animationDuration: "2.4s" }}
                     />
 
-                    <div className="relative w-36 h-36 flex items-center justify-center">
+                    <div className="relative w-36 h-36 flex items-center justify-center" style={{ aspectRatio: "1 / 1" }}>
                         <div
                             className="absolute inset-0 rounded-full border-2 border-dashed border-primary/25 animate-spin"
                             style={{ animationDuration: "6s" }}
                         />
 
-                        <svg className="absolute inset-2 -rotate-90" viewBox="0 0 100 100">
+                        <svg
+                            className="absolute -rotate-90"
+                            viewBox="0 0 100 100"
+                            style={{ width: "128px", height: "128px", aspectRatio: "1 / 1" }}
+                        >
                             <defs>
                                 <linearGradient id="receiptLoaderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                                     <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.5" />
@@ -197,7 +201,7 @@ export default function PublicReceipt() {
                             <span className="text-lg text-muted-foreground">%</span>
                         </span>
                     </div>
-
+                    
                     <div className="mt-8 h-5 relative overflow-hidden">
                         <p
                             key={loadMsgIndex}

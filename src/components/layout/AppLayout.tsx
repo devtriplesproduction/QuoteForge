@@ -96,7 +96,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
           style={{ animationDuration: "2.4s" }}
         />
 
-        <div className="relative w-36 h-36 flex items-center justify-center">
+        <div className="relative w-36 h-36 flex items-center justify-center" style={{ aspectRatio: "1 / 1" }}>
           {/* Slowly rotating decorative outer ring */}
           <div
             className="absolute inset-0 rounded-full border-2 border-dashed border-primary/25 animate-spin"
@@ -104,7 +104,11 @@ export function AppLayout({ children }: { children: ReactNode }) {
           />
 
           {/* Progress ring */}
-          <svg className="absolute inset-2 -rotate-90" viewBox="0 0 100 100">
+          <svg
+            className="absolute -rotate-90"
+            viewBox="0 0 100 100"
+            style={{ width: "128px", height: "128px", aspectRatio: "1 / 1" }}
+          >
             <defs>
               <linearGradient id="loaderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.5" />
