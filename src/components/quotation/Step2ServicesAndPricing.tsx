@@ -112,7 +112,9 @@ export default function Step2ServicesAndPricing(
 
     return (
         <>
-            <div className="mt-6 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_clamp(320px,36vw,480px)] gap-6">
+            {/* Equal 50/50 split: Services Selection (+ Selected Overview) on the left,
+                Pricing (+ Summary) on the right — mirrors the Basic Info / Client Summary split above. */}
+            <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
 
                 {/* Left */}
                 <div className="space-y-6 min-w-0">
