@@ -1349,7 +1349,7 @@ export default function InvoiceView() {
                     </div>
                   </div>
 
-                  <div
+                  {/* <div
                     className="doc-badge shrink-0"
                     style={{
                       backgroundColor: brandKit?.primary_color || "#111827",
@@ -1357,7 +1357,7 @@ export default function InvoiceView() {
                     }}
                   >
                     INVOICE
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="doc-header__titleRow">
